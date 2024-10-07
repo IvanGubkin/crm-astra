@@ -1,13 +1,11 @@
 import { Button } from './components/ui/button'
 
-
-
 function App() {
 
 
   return (
     <>
-      <Button className="bg-zinc-950 dark:bg-white">Button</Button>
+      <Button className="bg-red-500 text-white h-300">Button</Button>
     </>
   );
 }
