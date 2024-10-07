@@ -1,15 +1,22 @@
 import {Routes, Route} from "react-router-dom";
 
+// Components
+// import AuthRoutes from "./components/AuthRoutes/AuthRoutes";
+import Login from "./components/Pages/Login/Login";
+import Register from "./components/Pages/Register/Register";
+import PasswordReset from "./components/Pages/PasswordReset/PasswordReset";
+import Main from "./components/Pages/Main/Main";
+
 function RoutesApp() {
   return (
     <>
       <Routes>
-        <Route path="/" element={"Home"} />
-        <Route path="/login" element={"Login"} />
+        <Route path="/" element={<Main />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/logout" element={"Logout"} />
-        <Route path="/register" element={"Register"} />
-        <Route path="/pass_reset" element={"PasswordReset"} />
-        <Route path="/crm" element={"AuthRoutes"}>
+        <Route path="/register" element={<Register />} />
+        <Route path="/pass_reset" element={<PasswordReset />} />
+        {/* <Route path="/crm" element={<AuthRoutes />}>
           <Route path="/order" element={"Orders"}>
             <Route path="/create" element={"OrderCreate"} />
             <Route path="/edit:id" element={"OrderEdit"} />
@@ -30,7 +37,7 @@ function RoutesApp() {
             <Route path="/edit:id" element={"CategoryEdit"} />
             <Route path="/delete:id" element={"CategoryDelete"} />
           </Route>
-        </Route>
+        </Route> */}
       </Routes>
     </>
   );
