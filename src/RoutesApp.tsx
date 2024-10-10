@@ -2,10 +2,10 @@ import {Routes, Route} from "react-router-dom";
 
 // Components
 // import AuthRoutes from "./components/AuthRoutes/AuthRoutes";
-import Login from "./components/Pages/Login/Login";
-import Register from "./components/Pages/Register/Register";
-import PasswordReset from "./components/Pages/PasswordReset/PasswordReset";
-import Main from "./components/Pages/Main/Main";
+import Login from "./components/pages/Login/Login";
+import Register from "./components/pages/Register/Register";
+import PasswordReset from "./components/pages/PasswordReset/PasswordReset";
+import Main from "./components/pages/Main/Main";
 
 function RoutesApp() {
   return (
