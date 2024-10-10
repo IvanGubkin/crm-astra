@@ -1,9 +1,9 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
-import {Login} from "@/components/pages/login";
-import {Main} from "@/components/pages/main";
-import {Register} from "@/components/pages/register";
-import {ResetPassword} from "@/components/pages/resetPassword/ui/resetPassword";
+import {Login} from "@/pages/login";
+import {Main} from "@/pages/main";
+import {Register} from "@/pages/register";
+import {ResetPassword} from "@/pages/resetPassword/ui/resetPassword";
 
 export function AppRouters() {
   return (
