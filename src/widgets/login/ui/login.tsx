@@ -3,19 +3,13 @@ import { Button } from "@/shared/ui/button"
 import { Input } from "@/shared/ui/input"
 import { Tabs, TabsContent } from "@/shared/ui/tabs"
 import { useForm } from "react-hook-form"
-
-
-
-type LoginUser ={
-    login: string,
-    password: string,
-}
+import { LoginType } from "./type"
 
 export function LoginWidgets(){
     const {
         register,
         handleSubmit,
-    }= useForm<LoginUser>()
+    }= useForm<LoginType>()
     return (
       <Tabs defaultValue="login" className="flex justify-center alight-center">
         <TabsContent
