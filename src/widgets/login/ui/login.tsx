@@ -11,7 +11,7 @@ export function LoginWidgets(){
         handleSubmit,
     }= useForm<LoginType>()
     return (
-      <Tabs defaultValue="login" className="flex justify-center alight-center">
+      <Tabs defaultValue="login" className="flex justify-center items-center fixed h-full w-full">
         <TabsContent
           value="login"
           className="max-w-96 p-6  bg-slate-800 rounded-md"

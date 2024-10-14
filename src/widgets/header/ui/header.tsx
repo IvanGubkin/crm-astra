@@ -1,5 +1,5 @@
 import {Button} from "@/shared/ui/button";
-import logoAstraLyte from "../../assets/logoAstraLyte.svg";
+import logoAstraLyte from "@/shared/assets/logoAstraLyte.svg";
 import {cn} from "@/shared/lib/utils";
 import {Link} from "react-router-dom";
 

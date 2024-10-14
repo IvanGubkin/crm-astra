@@ -1,12 +1,10 @@
-import { Header } from "@/widgets/header"
+import {Header} from "@/widgets/header";
 
-
-
-export function Register(){
-    return (
-      <>
+export function Register() {
+  return (
+    <>
       <Header />
-        <h1>register</h1>
-      </>
-    );
+      <Register />
+    </>
+  );
 }
