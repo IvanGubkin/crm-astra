@@ -3,19 +3,24 @@
 @tailwind utilities;
 
 @layer components {
-  .page {
+  .page{
     display: grid;
     grid-template-areas: "header header header" "navigate main main";
     grid-template-columns: 150px auto auto;
     grid-template-rows: auto 1fr;
     height: 100vh;
+
   }
   .header {
     grid-area: header;
   }
   .navigate {
     grid-area: navigate;
+  }
+  .main {
+    grid-area: main;
     overflow-y: auto;
+        padding: 15px 15px 0 15px;
   }
 }
 
