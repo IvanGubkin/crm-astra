@@ -1,1 +1,1 @@
-export {Register} from "./ui/register"
+export {RegisterWidgets} from "./ui/register"

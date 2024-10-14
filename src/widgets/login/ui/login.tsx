@@ -5,6 +5,8 @@ import { Tabs, TabsContent } from "@/shared/ui/tabs"
 import { useForm } from "react-hook-form"
 import { LoginType } from "./type"
 
+
+
 export function LoginWidgets(){
     const {
         register,
