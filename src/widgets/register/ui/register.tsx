@@ -1,4 +1,4 @@
-import { RegisterType } from "@/shared/types/baseType";
+import {RegisterType} from "@/shared/types/baseType";
 import {Button} from "@/shared/ui/button";
 import {
   Card,
@@ -11,23 +11,13 @@ import {Input} from "@/shared/ui/input";
 
 import {useForm} from "react-hook-form";
 
-
-
 export function RegisterWidgets() {
-  const {
-    register,
-    handleSubmit,
-    formState:{errors}
-    
-  } = useForm<RegisterType>();
+  const {register, handleSubmit} = useForm<RegisterType>();
 
   const onSubmit = (data: RegisterType): void => {
     console.log(data);
+    // TODO
   };
-  console.log(errors);
-  
- 
- 
 
   return (
     <div className="grid place-content-center h-[88vh]">
@@ -58,8 +48,15 @@ export function RegisterWidgets() {
                 placeholder="Email"
                 {...register("owner_email", {required: "Обязательное поле"})}
               />
-              <Button disabled={false} onClick={()=>{console.log(1);
-              }} type="button" >Отправить код</Button>
+              <Button
+                disabled={false}
+                onClick={() => {
+                  console.log(1);
+                }}
+                type="button"
+              >
+                Отправить код
+              </Button>
             </div>
             <Input
               placeholder="Комментарий"
