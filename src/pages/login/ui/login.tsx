@@ -1,11 +1,11 @@
 import {Header} from "@/widgets/header";
-import { LoginWidgets } from "@/widgets/login/ui/login";
+import {LoginAndResetWidgets} from "@/widgets/login_reset/ui/login_reset";
 
 export function Login() {
   return (
     <>
       <Header />
-      <LoginWidgets/>
+      <LoginAndResetWidgets />
     </>
   );
 }
