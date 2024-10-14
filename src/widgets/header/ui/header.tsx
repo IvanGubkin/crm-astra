@@ -3,10 +3,11 @@ import logoAstraLyte from "../../assets/logoAstraLyte.svg";
 import {cn} from "@/shared/lib/utils";
 import {Link} from "react-router-dom";
 
+
 export function Header() {
   return (
     <header
-      className={cn("flex items-center justify-between px-6 py-3 bg-slate-800")}
+      className={cn("header flex items-center justify-between px-6 py-3 bg-slate-800")}
     >
       <Link to={"/"}>
         <img alt="logo" src={logoAstraLyte} />

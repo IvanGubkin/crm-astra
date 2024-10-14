@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .auth_page {
+    display: grid;
+    grid-template-areas: "header header header" "navigate main main";
+    grid-template-columns: 150px auto auto;
+  }
+  .header {
+    grid-area: header;
+  }
+  .navigate {
+    grid-area: navigate;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
