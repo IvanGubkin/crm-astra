@@ -1,6 +1,13 @@
+import { Header } from "@/widgets/header";
+import { Navigate } from "@/widgets/navigate";
 
 
 export function Settings() {
 
-    return<><h1>sd</h1></>
+    return(
+        <div className="page">
+            <Header />  
+            <Navigate />
+        </div>  
+    )
 }

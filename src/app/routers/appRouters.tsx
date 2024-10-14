@@ -8,7 +8,8 @@ import {Register} from "@/pages/register";
 import { Orders } from "@/pages/orders";
 import { Staffs } from "@/pages/staffs";
 import { Clients } from "@/pages/clients";
-import { Settings } from "lucide-react";
+import { Service } from "@/pages/service";
+import { Settings } from "@/pages/settings";
 
 export function AppRouters() {
   return (
@@ -21,6 +22,7 @@ export function AppRouters() {
         <Route path="/staffs" element={<Staffs />} />
         <Route path="/clients" element={<Clients />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/service" element={<Service />} />
       </Routes>
     </BrowserRouter>
   );
