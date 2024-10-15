@@ -10,8 +10,9 @@ type ResetPasswordType = {
 export function ResetPasswordFeatures(){
     const {
         register, 
-        handleSubmit
-    } = useForm<ResetPasswordType>()
+        handleSubmit,
+        formState:{isValid}
+    } = useForm<ResetPasswordType>({mode: "onChange"});
 
     const onSubmit = (data:ResetPasswordType) =>{
         console.log(data);
@@ -33,9 +34,9 @@ export function ResetPasswordFeatures(){
           >
             <Input
               placeholder="Email"
-              {...register("email", {required: "Обязательное поле"})}
+              {...register("email", {required: "Обязательное поле", pattern: {value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: "Введите корректный email адрес"}})}
             />
-            <Button type="submit">Отправить ссылку</Button>
+            <Button disabled={!isValid} type="submit">Отправить ссылку</Button>
           </form>
         </CardContent>
       </Card>

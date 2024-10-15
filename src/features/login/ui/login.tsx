@@ -9,12 +9,13 @@ import {
 } from "@/shared/ui/card";
 import {Input} from "@/shared/ui/input";
 import {useForm} from "react-hook-form";
+import { loginApi } from "../api/login";
 
 export function LoginFeatures() {
-  const {register, handleSubmit} = useForm<LoginType>();
+  const {register, handleSubmit, formState:{isValid}} = useForm<LoginType>({mode: "onChange"});
 
   const onSubmit = (data: LoginType): void => {
-    console.log(data);
+    loginApi(data);
   };
   return (
     <Card>
@@ -32,7 +33,7 @@ export function LoginFeatures() {
             placeholder="Пароль"
             {...register("password", {required: "Обязательное поле"})}
           />
-          <Button type="submit">Войти</Button>
+          <Button disabled={!isValid} type="submit">Войти</Button>
         </form>
       </CardContent>
     </Card>
