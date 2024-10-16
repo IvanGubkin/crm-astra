@@ -9,22 +9,41 @@ import {
 } from "@/shared/ui/card";
 import {Input} from "@/shared/ui/input";
 
-
 import {useForm} from "react-hook-form";
-
+import {emailRequestCodeApi, registerApi} from "../api";
+import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {login} from "@/shared/store/module/userSlice";
 
 export function RegisterWidgets() {
-  const {register, handleSubmit, formState:{isValid}, watch} = useForm<RegisterType>({mode: "onChange"});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: {isValid},
+    watch,
+  } = useForm<RegisterType>({mode: "onChange"});
 
   const email = watch("owner_email");
+
   const isEmailVoid = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email);
-  
+
   const onSubmit = (data: RegisterType): void => {
-    console.log(data);
-    
+    registerApi(data).then((res) => {
+      if (res.status === 200) {
+        dispatch(
+          login({
+            id: res.data.id,
+            name: res.data.name,
+            email: res.data.email,
+            phone: res.data.phone,
+          })
+        );
+        navigate("/orders");
+      }
+    });
   };
-
-
 
   return (
     <div className="grid place-content-center h-[88vh]">
@@ -54,7 +73,10 @@ export function RegisterWidgets() {
               placeholder="Телефон 79991114466"
               {...register("owner_phone", {
                 required: "Обязательное поле",
-                pattern: {value: /^[7]\d{10}$/i, message: "Введите корректный номер телефона"},
+                pattern: {
+                  value: /^[7]\d{10}$/i,
+                  message: "Введите корректный номер телефона",
+                },
               })}
             />
             <div className="flex gap-1">
@@ -68,7 +90,15 @@ export function RegisterWidgets() {
                   },
                 })}
               />
-              <Button disabled={!isEmailVoid} onClick={() => {}} type="button">
+              <Button
+                disabled={!isEmailVoid}
+                onClick={() => {
+                  emailRequestCodeApi(email).then((e) => {
+                    console.log(e);
+                  });
+                }}
+                type="button"
+              >
                 Отправить код
               </Button>
             </div>

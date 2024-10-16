@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
 
-export function Staffs(){
+export function Staff(){
     return(
         <Outlet />
     )

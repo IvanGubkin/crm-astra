@@ -24,7 +24,7 @@ export function Navigate() {
             isActive ? "bg-slate-600" : "hover:bg-slate-700"
           )
         }
-        to={"/staffs"}
+        to={"/staff"}
       >
         <p>Сотрудники</p>
       </NavLink>

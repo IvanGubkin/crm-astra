@@ -5,11 +5,23 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { StaffType } from "@/shared/types/baseType";
+import {StaffType} from "@/shared/types/baseType";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/shared/ui/sheet";
+import {Button} from "@/shared/ui/button";
+import {Input} from "@/shared/ui/input";
 
 export function StaffMain() {
-  const data = [{name: "John", email: "asdad@das.ew"}]
- 
+  const data = [{name: "John", email: "asdad@das.ew"}];
+
   const columnHelper = createColumnHelper<StaffType>();
 
   const columns = [
@@ -36,7 +48,7 @@ export function StaffMain() {
 
       <nav className="flex gap-1">
         <NavLink
-          to="/staffs"
+          to="/staff"
           className={({isActive}) =>
             `px-2 py-1 rounded-md ${
               isActive
@@ -59,18 +71,6 @@ export function StaffMain() {
         >
           Группы
         </NavLink>
-        <NavLink
-          to="/staffs/create"
-          className={({isActive}) =>
-            `px-2 py-1 rounded-md ${
-              isActive
-                ? "bg-gray-700 text-white border border-white shadow-lg"
-                : "bg-gray-500 text-white hover:bg-gray-700"
-            }`
-          }
-        >
-          Создать пользователя
-        </NavLink>
       </nav>
 
       <div className="mt-6 mb-6">
@@ -80,6 +80,35 @@ export function StaffMain() {
           className="px-4 py-2 border rounded-md w-full"
         />
       </div>
+      <Sheet>
+        <SheetTrigger asChild className="mb-3">
+          <Button className="bg-gray-500 text-white">
+            Добавить сотрудника
+          </Button>
+        </SheetTrigger>
+        <SheetContent className="overflow-auto">
+          <SheetHeader>
+            <SheetTitle>Создание пользователя</SheetTitle>
+            <SheetDescription>
+              Заполните данные пользователя и нажмите "Сохранить" в дальнейшем
+              вы сможете изменить данные
+            </SheetDescription>
+          </SheetHeader>
+          <form className="flex flex-col gap-3 mt-3 mb-3">
+            <Input placeholder="name" />
+            <Input placeholder="phone" />
+            <Input placeholder="email" />
+            <Input placeholder="address" />
+            <Input placeholder="role" />
+          </form>
+          <SheetFooter>
+            <SheetClose asChild>
+              <Button type="submit">Save changes</Button>
+            </SheetClose>
+          </SheetFooter>
+        </SheetContent>
+      </Sheet>
+
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           {table.getHeaderGroups().map((headerGroup) => (

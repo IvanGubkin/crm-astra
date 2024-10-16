@@ -9,13 +9,35 @@ import {
 } from "@/shared/ui/card";
 import {Input} from "@/shared/ui/input";
 import {useForm} from "react-hook-form";
-import { loginApi } from "../api/login";
+import {loginApi} from "../api/login";
+import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {login} from "@/shared/store/module/userSlice";
 
 export function LoginFeatures() {
-  const {register, handleSubmit, formState:{isValid}} = useForm<LoginType>({mode: "onChange"});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    formState: {isValid},
+  } = useForm<LoginType>({mode: "onChange"});
 
   const onSubmit = (data: LoginType): void => {
-    loginApi(data);
+    loginApi(data).then((res) => {
+      if (res.status === 200) {
+        dispatch(
+          login({
+            id: res.data.id,
+            phone: res.data.phone,
+            name: res.data.name,
+            email: res.data.email,
+          })
+        );
+        navigate("/orders");
+      }
+    });
   };
   return (
     <Card>
@@ -33,7 +55,9 @@ export function LoginFeatures() {
             placeholder="Пароль"
             {...register("password", {required: "Обязательное поле"})}
           />
-          <Button disabled={!isValid} type="submit">Войти</Button>
+          <Button disabled={!isValid} type="submit">
+            Войти
+          </Button>
         </form>
       </CardContent>
     </Card>

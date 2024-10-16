@@ -6,6 +6,7 @@ interface UserState {
     id: string;
     name: string;
     email: string;
+    phone: string;
   } | null;
 }
 
@@ -20,7 +21,12 @@ const userSlice = createSlice({
   reducers: {
     login(
       state,
-      action: PayloadAction<{id: string; name: string; email: string}>
+      action: PayloadAction<{
+        id: string;
+        name: string;
+        email: string;
+        phone: string;
+      }>
     ) {
       state.isAuthenticated = true;
       state.userInfo = action.payload;
