@@ -27,6 +27,7 @@ export function LoginFeatures() {
   const onSubmit = (data: LoginType): void => {
     loginApi(data).then((res) => {
       if (res.status === 200) {
+        localStorage.setItem("accessToken", res.data.access_token);
         dispatch(
           login({
             id: res.data.id,

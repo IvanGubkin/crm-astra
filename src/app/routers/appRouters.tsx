@@ -10,27 +10,61 @@ import {Clients} from "@/pages/clients";
 import {Service} from "@/pages/service";
 import {Settings} from "@/pages/settings";
 import {ProtectedRoute} from "@/pages/protectedRoute";
-
-
+import {useDispatch} from "react-redux";
+import {getUserData, refreshToken} from "@/shared/api";
+import {login} from "@/shared/store/module/userSlice";
+import {useEffect, useState} from "react";
 
 export function AppRouters() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route element={<ProtectedRoute />}>
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/staff" element={<Staff />}>
-            <Route index element={<StaffMain/>} />
-            <Route path="group" element={<StaffGroup />} />
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      refreshToken().then((res) => {
+        if (res.status === 200) {
+          console.log(res.data);
+
+          getUserData().then((res) => {
+            if (res.status === 200) {
+              console.log(res.data);
+
+              dispatch(
+                login({
+                  id: res.data.id,
+                  phone: res.data.phone,
+                  name: res.data.name,
+                  email: res.data.email,
+                })
+              );
+            }
+            setLoading(false);
+          });
+        }
+      });
+    }
+  }, []);
+  if (loading) {
+    <div>Loading...</div>;
+  } else {
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/staff" element={<Staff />}>
+              <Route index element={<StaffMain />} />
+              <Route path="group" element={<StaffGroup />} />
+            </Route>
+            <Route path="/clients" element={<Clients />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/service" element={<Service />} />
           </Route>
-          <Route path="/clients" element={<Clients />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/service" element={<Service />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+        </Routes>
+      </BrowserRouter>
+    );
+  }
 }

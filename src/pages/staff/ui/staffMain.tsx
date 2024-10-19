@@ -7,6 +7,8 @@ import {
 } from "@tanstack/react-table";
 import {StaffType} from "@/shared/types/baseType";
 import {
+  Button,
+  Input,
   Sheet,
   SheetClose,
   SheetContent,
@@ -15,9 +17,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/shared/ui/sheet";
-import {Button} from "@/shared/ui/button";
-import {Input} from "@/shared/ui/input";
+} from "@/shared/ui";
 
 export function StaffMain() {
   const data = [{name: "John", email: "asdad@das.ew"}];

@@ -28,8 +28,12 @@ const userSlice = createSlice({
         phone: string;
       }>
     ) {
+      console.log(1);
+      
       state.isAuthenticated = true;
       state.userInfo = action.payload;
+      console.log(2);
+      
     },
     logout(state) {
       state.isAuthenticated = false;
