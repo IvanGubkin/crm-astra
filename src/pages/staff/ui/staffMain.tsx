@@ -5,24 +5,13 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import {StaffType} from "@/shared/types/baseType";
-import {
-  Button,
-  Input,
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/shared/ui";
+import {UserType} from "@/shared/types";
+import { CreateStaff } from "@/widgets/staff";
 
 export function StaffMain() {
   const data = [{name: "John", email: "asdad@das.ew"}];
 
-  const columnHelper = createColumnHelper<StaffType>();
+  const columnHelper = createColumnHelper<UserType>();
 
   const columns = [
     columnHelper.accessor("name", {
@@ -60,7 +49,7 @@ export function StaffMain() {
           Все
         </NavLink>
         <NavLink
-          to="/staffs/group"
+          to="/staff/groups"
           className={({isActive}) =>
             `px-2 py-1 rounded-md ${
               isActive
@@ -80,34 +69,7 @@ export function StaffMain() {
           className="px-4 py-2 border rounded-md w-full"
         />
       </div>
-      <Sheet>
-        <SheetTrigger asChild className="mb-3">
-          <Button className="bg-gray-500 text-white">
-            Добавить сотрудника
-          </Button>
-        </SheetTrigger>
-        <SheetContent className="overflow-auto">
-          <SheetHeader>
-            <SheetTitle>Создание пользователя</SheetTitle>
-            <SheetDescription>
-              Заполните данные пользователя и нажмите "Сохранить" в дальнейшем
-              вы сможете изменить данные
-            </SheetDescription>
-          </SheetHeader>
-          <form className="flex flex-col gap-3 mt-3 mb-3">
-            <Input placeholder="name" />
-            <Input placeholder="phone" />
-            <Input placeholder="email" />
-            <Input placeholder="address" />
-            <Input placeholder="role" />
-          </form>
-          <SheetFooter>
-            <SheetClose asChild>
-              <Button type="submit">Save changes</Button>
-            </SheetClose>
-          </SheetFooter>
-        </SheetContent>
-      </Sheet>
+      <CreateStaff />
 
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">

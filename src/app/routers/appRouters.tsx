@@ -1,48 +1,43 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {refreshToken} from "@/shared/api";
+import {login} from "@/shared/store/module/userSlice";
+import {useEffect, useState} from "react";
+import {getUserData} from "@/pages/staff/api";
 
 // Pages
 import {Login} from "@/pages/login";
 import {Main} from "@/pages/main";
 import {Register} from "@/pages/register";
 import {Orders} from "@/pages/orders";
-import {Staff, StaffGroup, StaffMain} from "@/pages/staff";
+import {Staff, StaffGroup} from "@/pages/staff";
 import {Clients} from "@/pages/clients";
 import {Service} from "@/pages/service";
 import {Settings} from "@/pages/settings";
 import {ProtectedRoute} from "@/pages/protectedRoute";
-// import {useDispatch} from "react-redux";
-// import {getUserData, refreshToken} from "@/shared/api";
-// import {login} from "@/shared/store/module/userSlice";
-// import {useEffect, useState} from "react";
+import {StaffMain} from "@/pages/staff/ui/staffMain";
 
 export function AppRouters() {
-  // const dispatch = useDispatch();
-  // const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("accessToken")) {
-  //     refreshToken().then((res) => {
-  //       if (res.status === 200) {
-  //         getUserData().then((res) => {
-  //           if (res.status === 200) {
-  //             dispatch(
-  //               login({
-  //                 id: res.data.id,
-  //                 phone: res.data.phone,
-  //                 name: res.data.name,
-  //                 email: res.data.email,
-  //               })
-  //             );
-  //           }
-  //           setLoading(false);
-  //         });
-  //       }
-  //     });
-  //   }
-  // }, []);
-  // if (loading) {
-  //   <div>Loading...</div>;
-  // } else {
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      refreshToken().then((res) => {
+        if (res.status === 200) {
+          getUserData().then((res) => {
+            if (res.status === 200) {
+              dispatch(login(res.data));
+              setLoading(false);
+            }
+          });
+        }
+      });
+    }
+  }, []);
+  if (loading) {
+    return <div>Loading...</div>;
+  } else {
     return (
       <BrowserRouter>
         <Routes>
@@ -53,7 +48,7 @@ export function AppRouters() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/staff" element={<Staff />}>
               <Route index element={<StaffMain />} />
-              <Route path="group" element={<StaffGroup />} />
+              <Route path="groups" element={<StaffGroup />} />
             </Route>
             <Route path="/clients" element={<Clients />} />
             <Route path="/settings" element={<Settings />} />
@@ -63,4 +58,4 @@ export function AppRouters() {
       </BrowserRouter>
     );
   }
-// }
+}

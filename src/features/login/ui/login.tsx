@@ -9,10 +9,11 @@ import {
 } from "@/shared/ui/card";
 import {Input} from "@/shared/ui/input";
 import {useForm} from "react-hook-form";
-import {getUserData, loginApi} from "@/shared/api";
+import {loginApi} from "@/shared/api";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {login} from "@/shared/store/module/userSlice";
+import { getUserData } from "@/pages/staff/api";
 
 export function LoginFeatures() {
   const dispatch = useDispatch();
