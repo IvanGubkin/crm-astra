@@ -10,43 +10,39 @@ import {Clients} from "@/pages/clients";
 import {Service} from "@/pages/service";
 import {Settings} from "@/pages/settings";
 import {ProtectedRoute} from "@/pages/protectedRoute";
-import {useDispatch} from "react-redux";
-import {getUserData, refreshToken} from "@/shared/api";
-import {login} from "@/shared/store/module/userSlice";
-import {useEffect, useState} from "react";
+// import {useDispatch} from "react-redux";
+// import {getUserData, refreshToken} from "@/shared/api";
+// import {login} from "@/shared/store/module/userSlice";
+// import {useEffect, useState} from "react";
 
 export function AppRouters() {
-  const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true);
+  // const dispatch = useDispatch();
+  // const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (localStorage.getItem("accessToken")) {
-      refreshToken().then((res) => {
-        if (res.status === 200) {
-          console.log(res.data);
-
-          getUserData().then((res) => {
-            if (res.status === 200) {
-              console.log(res.data);
-
-              dispatch(
-                login({
-                  id: res.data.id,
-                  phone: res.data.phone,
-                  name: res.data.name,
-                  email: res.data.email,
-                })
-              );
-            }
-            setLoading(false);
-          });
-        }
-      });
-    }
-  }, []);
-  if (loading) {
-    <div>Loading...</div>;
-  } else {
+  // useEffect(() => {
+  //   if (localStorage.getItem("accessToken")) {
+  //     refreshToken().then((res) => {
+  //       if (res.status === 200) {
+  //         getUserData().then((res) => {
+  //           if (res.status === 200) {
+  //             dispatch(
+  //               login({
+  //                 id: res.data.id,
+  //                 phone: res.data.phone,
+  //                 name: res.data.name,
+  //                 email: res.data.email,
+  //               })
+  //             );
+  //           }
+  //           setLoading(false);
+  //         });
+  //       }
+  //     });
+  //   }
+  // }, []);
+  // if (loading) {
+  //   <div>Loading...</div>;
+  // } else {
     return (
       <BrowserRouter>
         <Routes>
@@ -67,4 +63,4 @@ export function AppRouters() {
       </BrowserRouter>
     );
   }
-}
+// }

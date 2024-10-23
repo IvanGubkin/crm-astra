@@ -7,3 +7,4 @@ export * from "./textarea";
 export * from "./sheet";
 export * from "./popover";
 export * from "./dialog";
+export * from "./avatar";

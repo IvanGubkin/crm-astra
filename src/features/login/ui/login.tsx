@@ -9,7 +9,7 @@ import {
 } from "@/shared/ui/card";
 import {Input} from "@/shared/ui/input";
 import {useForm} from "react-hook-form";
-import {loginApi} from "../api/login";
+import {getUserData, loginApi} from "@/shared/api";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {login} from "@/shared/store/module/userSlice";
@@ -28,15 +28,12 @@ export function LoginFeatures() {
     loginApi(data).then((res) => {
       if (res.status === 200) {
         localStorage.setItem("accessToken", res.data.access_token);
-        dispatch(
-          login({
-            id: res.data.id,
-            phone: res.data.phone,
-            name: res.data.name,
-            email: res.data.email,
-          })
-        );
-        navigate("/orders");
+        getUserData().then((res) => {
+          if (res.status === 200) {
+            dispatch(login(res.data));
+            navigate("/orders");
+          }
+        });
       }
     });
   };
@@ -56,7 +53,7 @@ export function LoginFeatures() {
             placeholder="Пароль"
             {...register("password", {required: "Обязательное поле"})}
           />
-          <Button disabled={!isValid} type="submit">
+          <Button size="sm" disabled={!isValid} type="submit">
             Войти
           </Button>
         </form>
