@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {refreshToken} from "@/shared/api";
 import {login} from "@/shared/store/module/userSlice";
