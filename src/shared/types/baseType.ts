@@ -9,7 +9,7 @@ export type RegisterType = {
   owner_name: string;
   owner_email: string;
   owner_phone: string;
-  properties?: {[key: string]: string};
+  properties?: { [key: string]: string };
   password: string;
   pincode: string;
 };
@@ -62,7 +62,7 @@ export type UserType = {
   sms_count: number;
   comment: string;
   properties: {
-    [key:string]: string;
+    [key: string]: string;
   };
   lastconnect: string;
   lastdevicetype: string;
@@ -84,12 +84,12 @@ export type UserType = {
   id: string;
   categories: [
     {
-      [id:string]: string;
-    }
+      [id: string]: string;
+    },
   ];
   sub_categories: [
     {
-      [id:string]: string;
-    }
+      [id: string]: string;
+    },
   ];
 };

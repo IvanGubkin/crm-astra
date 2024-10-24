@@ -2,7 +2,7 @@ export * from "./button";
 export * from "./card";
 export * from "./input";
 export * from "./command";
-export * from "./tabs"
+export * from "./tabs";
 export * from "./textarea";
 export * from "./sheet";
 export * from "./popover";

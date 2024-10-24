@@ -1,1 +1,1 @@
-export {Navigate} from "./ui/navigate";
+export { Navigate } from "./ui/navigate";

@@ -1,1 +1,1 @@
-export {ResetPasswordFeatures} from "./ui/resetPassword";
+export { ResetPasswordFeatures } from "./ui/resetPassword";

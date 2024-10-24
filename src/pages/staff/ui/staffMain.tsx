@@ -1,15 +1,15 @@
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import {UserType} from "@/shared/types";
+import { UserType } from "@/shared/types";
 import { CreateStaff } from "@/widgets/staff";
 
 export function StaffMain() {
-  const data = [{name: "John", email: "asdad@das.ew"}];
+  const data = [{ name: "John", email: "asdad@das.ew" }];
 
   const columnHelper = createColumnHelper<UserType>();
 
@@ -38,7 +38,7 @@ export function StaffMain() {
       <nav className="flex gap-1">
         <NavLink
           to="/staff"
-          className={({isActive}) =>
+          className={({ isActive }) =>
             `px-2 py-1 rounded-md ${
               isActive
                 ? "bg-gray-700 text-white border border-white shadow-lg"
@@ -50,7 +50,7 @@ export function StaffMain() {
         </NavLink>
         <NavLink
           to="/staff/groups"
-          className={({isActive}) =>
+          className={({ isActive }) =>
             `px-2 py-1 rounded-md ${
               isActive
                 ? "bg-gray-700 text-white border border-white shadow-lg"
@@ -84,7 +84,7 @@ export function StaffMain() {
                     ? null
                     : flexRender(
                         header.column.columnDef.header,
-                        header.getContext()
+                        header.getContext(),
                       )}
                 </th>
               ))}

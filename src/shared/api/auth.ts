@@ -1,6 +1,6 @@
-import {$api} from "./baseApi";
+import { $api } from "./baseApi";
 
-import {LoginType} from "@/shared/types/baseType";
+import { LoginType } from "@/shared/types/baseType";
 
 export const refreshToken = async () => {
   return await $api.get("/auth/obtain-tokens").then((res) => {
@@ -14,7 +14,7 @@ export const refreshToken = async () => {
 export const loginApi = async (data: LoginType) => {
   return await $api.post(
     "/auth",
-    {...data},
-    {headers: {"Content-type": "application/x-www-form-urlencoded"}}
+    { ...data },
+    { headers: { "Content-type": "application/x-www-form-urlencoded" } },
   );
 };

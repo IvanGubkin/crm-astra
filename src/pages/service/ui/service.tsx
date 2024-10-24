@@ -1,8 +1,3 @@
-
 export function Service() {
-  return (
-    <div>
-        Service
-    </div>
-  );
+  return <div>Service</div>;
 }

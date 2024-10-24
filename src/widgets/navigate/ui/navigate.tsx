@@ -1,15 +1,15 @@
-import {cn} from "@/shared/lib/utils";
+import { cn } from "@/shared/lib/utils";
 
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export function Navigate() {
   return (
     <nav className={cn("navigate flex-1 bg-slate-800 py-4 px-4")}>
       <NavLink
-        className={({isActive}) =>
+        className={({ isActive }) =>
           cn(
             "block px-4 py-2 rounded-md text-white mb-2",
-            isActive ? "bg-slate-600" : "hover:bg-slate-700"
+            isActive ? "bg-slate-600" : "hover:bg-slate-700",
           )
         }
         to={"/orders"}
@@ -18,10 +18,10 @@ export function Navigate() {
       </NavLink>
 
       <NavLink
-        className={({isActive}) =>
+        className={({ isActive }) =>
           cn(
             "block px-4 py-2 rounded-md text-white mb-2",
-            isActive ? "bg-slate-600" : "hover:bg-slate-700"
+            isActive ? "bg-slate-600" : "hover:bg-slate-700",
           )
         }
         to={"/staff"}
@@ -30,10 +30,10 @@ export function Navigate() {
       </NavLink>
 
       <NavLink
-        className={({isActive}) =>
+        className={({ isActive }) =>
           cn(
             "block px-4 py-2 rounded-md text-white mb-2",
-            isActive ? "bg-slate-600" : "hover:bg-slate-700"
+            isActive ? "bg-slate-600" : "hover:bg-slate-700",
           )
         }
         to={"/service"}
@@ -42,10 +42,10 @@ export function Navigate() {
       </NavLink>
 
       <NavLink
-        className={({isActive}) =>
+        className={({ isActive }) =>
           cn(
             "block px-4 py-2 rounded-md text-white mb-2",
-            isActive ? "bg-slate-600" : "hover:bg-slate-700"
+            isActive ? "bg-slate-600" : "hover:bg-slate-700",
           )
         }
         to={"/clients"}
@@ -54,10 +54,10 @@ export function Navigate() {
       </NavLink>
 
       <NavLink
-        className={({isActive}) =>
+        className={({ isActive }) =>
           cn(
             "block px-4 py-2 rounded-md text-white mb-2",
-            isActive ? "bg-slate-600" : "hover:bg-slate-700"
+            isActive ? "bg-slate-600" : "hover:bg-slate-700",
           )
         }
         to={"/settings"}

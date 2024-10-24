@@ -1,1 +1,1 @@
-export {ProtectedRoute}from"./module/protectedRoute";
+export { ProtectedRoute } from "./module/protectedRoute";

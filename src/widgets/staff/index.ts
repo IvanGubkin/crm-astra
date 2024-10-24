@@ -1,1 +1,1 @@
-export {CreateStaff} from "./ui/createStaff";
+export { CreateStaff } from "./ui/createStaff";

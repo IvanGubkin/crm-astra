@@ -1,1 +1,1 @@
-export {LoginAndResetWidgets} from "./ui/login_reset";
+export { LoginAndResetWidgets } from "./ui/login_reset";

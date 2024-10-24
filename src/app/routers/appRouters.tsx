@@ -1,21 +1,21 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {refreshToken} from "@/shared/api";
-import {login} from "@/shared/store/module/userSlice";
-import {useEffect, useState} from "react";
-import {getUserData} from "@/pages/staff/api";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { refreshToken } from "@/shared/api";
+import { login } from "@/shared/store/module/userSlice";
+import { useEffect, useState } from "react";
+import { getUserData } from "@/pages/staff/api";
 
 // Pages
-import {Login} from "@/pages/login";
-import {Main} from "@/pages/main";
-import {Register} from "@/pages/register";
-import {Orders} from "@/pages/orders";
-import {Staff, StaffGroup} from "@/pages/staff";
-import {Clients} from "@/pages/clients";
-import {Service} from "@/pages/service";
-import {Settings} from "@/pages/settings";
-import {ProtectedRoute} from "@/pages/protectedRoute";
-import {StaffMain} from "@/pages/staff/ui/staffMain";
+import { Login } from "@/pages/login";
+import { Main } from "@/pages/main";
+import { Register } from "@/pages/register";
+import { Orders } from "@/pages/orders";
+import { Staff, StaffGroup } from "@/pages/staff";
+import { Clients } from "@/pages/clients";
+import { Service } from "@/pages/service";
+import { Settings } from "@/pages/settings";
+import { ProtectedRoute } from "@/pages/protectedRoute";
+import { StaffMain } from "@/pages/staff/ui/staffMain";
 
 export function AppRouters() {
   const dispatch = useDispatch();

@@ -13,10 +13,7 @@ import {
 import { useForm } from "react-hook-form";
 
 export const CreateStaff = () => {
-  const {
-    register,
-    handleSubmit,
-  } = useForm<UserType>();
+  const { register, handleSubmit } = useForm<UserType>();
 
   const onSubmit = (data: UserType) => {
     console.log(data);
@@ -41,19 +38,19 @@ export const CreateStaff = () => {
         >
           <Input
             placeholder="ФИО"
-            {...register("name", {required: "Обязательное поле"})}
+            {...register("name", { required: "Обязательное поле" })}
           />
           <Input
             placeholder="Телефон"
-            {...register("phone", {required: "Обязательное поле"})}
+            {...register("phone", { required: "Обязательное поле" })}
           />
           <Input
             placeholder="Email"
-            {...register("email", {required: "Обязательное поле"})}
+            {...register("email", { required: "Обязательное поле" })}
           />
           <Input
             placeholder="Адрес"
-            {...register("address", {required: "Обязательное поле"})}
+            {...register("address", { required: "Обязательное поле" })}
           />
           <SheetFooter>
             <Button type="submit">Сохранить</Button>

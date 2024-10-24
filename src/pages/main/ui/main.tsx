@@ -1,4 +1,4 @@
-import {Header} from "@/widgets/header";
+import { Header } from "@/widgets/header";
 
 export function Main() {
   return (

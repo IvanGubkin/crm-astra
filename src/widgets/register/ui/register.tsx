@@ -1,5 +1,5 @@
-import {RegisterType} from "@/shared/types/baseType";
-import {Button} from "@/shared/ui/button";
+import { RegisterType } from "@/shared/types/baseType";
+import { Button } from "@/shared/ui/button";
 import {
   Card,
   CardContent,
@@ -7,13 +7,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/shared/ui/card";
-import {Input} from "@/shared/ui/input";
+import { Input } from "@/shared/ui/input";
 
-import {useForm} from "react-hook-form";
-import {emailRequestCodeApi, registerApi} from "../api";
-import {useNavigate} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {login} from "@/shared/store/module/userSlice";
+import { useForm } from "react-hook-form";
+import { emailRequestCodeApi, registerApi } from "../api";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "@/shared/store/module/userSlice";
 
 export function RegisterWidgets() {
   const dispatch = useDispatch();
@@ -21,9 +21,9 @@ export function RegisterWidgets() {
   const {
     register,
     handleSubmit,
-    formState: {isValid},
+    formState: { isValid },
     watch,
-  } = useForm<RegisterType>({mode: "onChange"});
+  } = useForm<RegisterType>({ mode: "onChange" });
 
   const email = watch("owner_email");
 
@@ -38,7 +38,7 @@ export function RegisterWidgets() {
             name: res.data.name,
             email: res.data.email,
             phone: res.data.phone,
-          })
+          }),
         );
         navigate("/orders");
       }
@@ -67,7 +67,7 @@ export function RegisterWidgets() {
             />
             <Input
               placeholder="ФИО"
-              {...register("owner_name", {required: "Обязательное поле"})}
+              {...register("owner_name", { required: "Обязательное поле" })}
             />
             <Input
               placeholder="Телефон 79991114466"
@@ -104,7 +104,7 @@ export function RegisterWidgets() {
             </div>
             <Input
               placeholder="Комментарий"
-              {...register("description", {required: "Обязательное поле"})}
+              {...register("description", { required: "Обязательное поле" })}
             />
             <Input
               type="password"
@@ -116,7 +116,7 @@ export function RegisterWidgets() {
             />
             <Input
               placeholder="Pin с email"
-              {...register("pincode", {required: "Обязательное поле"})}
+              {...register("pincode", { required: "Обязательное поле" })}
             />
             <Button disabled={!isValid} type="submit">
               Регистрация

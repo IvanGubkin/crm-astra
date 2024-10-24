@@ -1,11 +1,8 @@
 import { LoginFeatures } from "@/features/login";
 import { ResetPasswordFeatures } from "@/features/resetPassword";
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/shared/ui/tabs";
-
-
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/tabs";
 
 export function LoginAndResetWidgets() {
-
   return (
     <div className="flex h-[88vh] w-full items-center justify-center">
       <Tabs defaultValue="login" className="w-[450px]">

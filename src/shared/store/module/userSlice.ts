@@ -1,5 +1,5 @@
 import { UserType } from "@/shared/types";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface UserState {
   isAuthenticated: boolean;
@@ -15,14 +15,10 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    login(
-      state,
-      action: PayloadAction<UserType>
-    ) {      
+    login(state, action: PayloadAction<UserType>) {
       state.isAuthenticated = true;
       state.userInfo = action.payload;
       console.log(action.payload);
-      
     },
     logout(state) {
       localStorage.removeItem("accessToken");
@@ -32,5 +28,5 @@ const userSlice = createSlice({
   },
 });
 
-export const {login, logout} = userSlice.actions;
+export const { login, logout } = userSlice.actions;
 export default userSlice.reducer;

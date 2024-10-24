@@ -1,1 +1,1 @@
-export {Orders} from "./ui/orders";
+export { Orders } from "./ui/orders";

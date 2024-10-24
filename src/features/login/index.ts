@@ -1,1 +1,1 @@
-export {LoginFeatures} from "./ui/login";
+export { LoginFeatures } from "./ui/login";

@@ -1,17 +1,17 @@
-import {Button} from "@/shared/ui/button";
+import { Button } from "@/shared/ui/button";
 import logoAstraLyte from "@/shared/assets/logoAstraLyte.svg";
-import {cn} from "@/shared/lib/utils";
-import {Link} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "@/shared/store";
-import {logout} from "@/shared/store/module/userSlice";
-import {Avatar, AvatarFallback, AvatarImage} from "@/shared/ui";
+import { cn } from "@/shared/lib/utils";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/shared/store";
+import { logout } from "@/shared/store/module/userSlice";
+import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui";
 
 export function Header() {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
   const isAuthenticated = useSelector(
-    (state: RootState) => state.user.isAuthenticated
+    (state: RootState) => state.user.isAuthenticated,
   );
 
   const handleLogout = () => {
@@ -21,7 +21,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "header flex items-center justify-between px-6 py-3 bg-slate-800"
+        "header flex items-center justify-between px-6 py-3 bg-slate-800",
       )}
     >
       <Link to={"/"}>
